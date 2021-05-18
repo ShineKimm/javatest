@@ -10,7 +10,6 @@ public class Ex0518_05 {
 		int num1 = scan.nextInt();
 		int num2 = scan.nextInt();
 		
-		System.out.println("데이터 : "+max(num1,num2));
 		
 		for (int i = 0; i < 10; i++) {
 			num1 += i;
@@ -20,16 +19,14 @@ public class Ex0518_05 {
 			num1 += i;
 		}
 		
-		max(num1,num2);
+		int result = add(num1,num2);
+		System.out.println(result);
 		
 	}//main메소드
-	static int max(int num1,int num2) {
-		int result = 0;
-		if (num1 < num2) {
-			result = num1;
-		}else {
-			result = num2;
-		}
+	//두수를 더해서 리턴해주는 메소드
+	static int add(int num1,int num2) {
+		int result = num1+num2;
 		return result;
 	}
+	
 }
