@@ -22,8 +22,8 @@ loop1: while (true) {
 			case 2: // 학생성적출력
 				System.out.println("번호\t이름\t국어\t영어\t수학\t합계\t평균\t등수\n");
 				System.out.println("----------------------------");
-				for (int i = 0; i < s.length; i++) {
-					s[i] = new Student2(); // s[i] 객체선언
+				for (int i = 0; i < Student2.count; i++) {
+				//	s[i] = new Student2(); // s[i] 객체선언
 					// 번호는 자동으로 입력
 					System.out.print(s[i].stu_number + "\t");
 					System.out.print(s[i].name + "\t");

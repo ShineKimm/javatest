@@ -11,16 +11,9 @@ public class Ex0518_05 {
 		int num2 = scan.nextInt();
 		
 		
-		for (int i = 0; i < 10; i++) {
-			num1 += i;
-		}
-		
-		for (int i = 0; i < 11; i++) {
-			num1 += i;
-		}
-		
 		int result = add(num1,num2);
 		System.out.println(result);
+	
 		
 	}//main메소드
 	//두수를 더해서 리턴해주는 메소드
@@ -28,5 +21,8 @@ public class Ex0518_05 {
 		int result = num1+num2;
 		return result;
 	}
-	
+	// 참조매개변수 테스트
+	static void aa(Test t) {
+	t.a = 11;
+	}
 }
