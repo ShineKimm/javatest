@@ -22,7 +22,7 @@ public class Ex0521_06 {
 				student_insert(s);
 				break;
 			case 2:
-				
+				student_print(s);
 				break;
 			case 3:
 				
@@ -41,7 +41,7 @@ public class Ex0521_06 {
 		}//while
 	}//main
 	
-	//상단메뉴출력ㄹ 메소드
+	//상단메뉴출력 메소드
 	static void menu_print() {
 		System.out.println("학생성적처리 프로그램");
 		System.out.println("1.학생성적추가");
@@ -76,8 +76,18 @@ public class Ex0521_06 {
 				System.out.println("1명의 학생이 등록되었습니다.");
 			}
 		} //for 반복끝
-	}
+	}//학생성적추가 끝
 	
+	static void student_print(Student2[] s) {
+		for (int i = Student2.count; i < s.length; i++) {
+			System.out.println(s[i].name);
+			System.out.println(s[i].kor);
+			System.out.println(s[i].eng);
+			System.out.println(s[i].math);
+			System.out.println(s[i].total);
+			System.out.println(s[i].avg);
+		} //for 반복끝
+	}
 	
 	
 }//class
