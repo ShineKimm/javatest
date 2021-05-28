@@ -1,7 +1,7 @@
 
 public class Deck {
 	final int CARD_NUM = 52;
-	Card[] c = new Card[CARD_NUM];
+	Card[] c = new Card[CARD_NUM];  //c[0],c[1]..c[51]
 	
 	Deck() { //기본생성자 - spade, diamond, heart, clover
 		for(int i=1;i<=4; i++) {
@@ -19,5 +19,11 @@ public class Deck {
 			c[random_no] = temp;
 			
 		}
+	}
+	void card_print(Card c) {
+		String[] kinds = {"","SPADE","DIAMOND","HEART","CLOVER"};
+		String[] numbers = {"0","1","2","3","4","5","6","7","8","9","10"
+							,"J","Q","K"};
+		System.out.printf("카드종류 : %s,%s \n",kinds[c.kind],numbers[c.number]);
 	}
 }
