@@ -4,11 +4,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>index</title>
+		<title>index1111</title>
 	</head>
 	<body>
 	  <ul>
-	    <li><a href="./login.do">로그인</a></li>
+	    <li><a href="./login.do">로그인1</a></li>
 	    <li><a href="./member.do">회원가입</a></li>
 	    <li><a href="./logout.do">로그아웃</a></li>
 	    <li><a href="./board/blist.do">게시판</a></li>

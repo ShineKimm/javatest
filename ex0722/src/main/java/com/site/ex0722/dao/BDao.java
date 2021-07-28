@@ -220,7 +220,10 @@ public class BDao {
 		ArrayList<BVo> list = new ArrayList<BVo>();
 		try {
 			conn = getConnection();
-			String sql = "select * from board order by bgroup desc, bstep asc";
+			String sql = "select * from"
+						+ "(select rownum as rnum ,b.* from"
+						+ "(select * from board order by bgroup desc, bstep asc) b)"
+						+ "where rnum>=1 and rnum<=10";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -252,7 +255,34 @@ public class BDao {
 		return list;
 	}//boardAllSelect
 
-	
+	//총 게시글 수
+	public int boardCountSelect() {
+		int listCount = 0;
+		
+		try {
+			conn = getConnection();
+			String sql = "select * from board order by bgroup desc, bstep asc";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				listCount = rs.getInt("count");
+				System.out.println("listCount"+listCount);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)	rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return listCount;
+		
+	}
 	
 	
 	
@@ -267,6 +297,50 @@ public class BDao {
 		ds = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
 		return ds.getConnection();
 	}// getConnection
+
+
+	public ArrayList<BVo> boardAllSelect(int startrow, int startPage) {
+		
+		ArrayList<BVo> list = new ArrayList<BVo>();
+		try {
+			conn = getConnection();
+			String sql = "select * from"
+						+ "(select rownum as rnum ,b.* from"
+						+ "(select * from board order by bgroup desc, bstep asc) b)"
+						+ "where rnum>=? and rnum<=?";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				bid = rs.getInt("bid");
+				btitle = rs.getString("btitle");
+				bcontent = rs.getString("bcontent");
+				bname = rs.getString("bname");
+				bgroup = rs.getInt("bgroup");
+				bstep = rs.getInt("bstep");
+				bindent = rs.getInt("bindent");
+				bdate = rs.getTimestamp("bdate");
+				bupload = rs.getString("bupload");
+				bhit = rs.getInt("bhit");
+				bVo = new BVo(bid,btitle,bcontent,bname,bgroup,bstep,bindent,bdate,bupload,bhit);
+				list.add(bVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)	rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+
+
 
 
 	

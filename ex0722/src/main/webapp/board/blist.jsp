@@ -64,9 +64,17 @@
     </table>
 
     <ul class="page-num">
-      <li class="first"></li>
+    	<c:if test="${page!=1 }">
+    	<a href="./blist.do?page=${1 }"><li class="first"></li></a>
+    	</c:if>
+    	<c:if test="${page!=1 }">
+    	<a href="#"><li class="first"></li></a>
+    	</c:if>
       <li class="prev"></li>
-      <li class="num"><div>1</div></li>
+		<c:forEach var="pageNum" begin="${startPage }" end="${endPage }">
+		<li class="num"><div>${pageNum }</div></li>
+		</c:forEach>      
+      
       <li class="next"></li>
       <li class="last"></li>
     </ul>
