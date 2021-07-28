@@ -157,12 +157,14 @@
       
       
       <!-- c:/aaa에서 업로드 경로를 찾을것 -->
+      <Context docBase="c:/upload" path="memberBoard/upload" reloadable="true"/>
+      <Context docBase="c:/upload" path="ex0728/upload" reloadable="true"/>
       <Context docBase="c:/upload" path="ex0719/upload" reloadable="true"/>
       <Context docBase="c:/upload" path="ex0720/upload" reloadable="true"/>
       <Context docBase="c:/upload" path="ex0721/upload" reloadable="true"/>
       <Context docBase="c:/upload" path="ex0722/upload" reloadable="true"/>
       <Context docBase="c:/upload" path="ex0726/upload" reloadable="true"/>
-      <Context docBase="ex0722" path="/ex0722" reloadable="true" source="org.eclipse.jst.jee.server:ex0722"/></Host>
+      <Context docBase="ex0728" path="/ex0728" reloadable="true" source="org.eclipse.jst.jee.server:ex0728"/></Host>
     </Engine>
   </Service>
 </Server>
