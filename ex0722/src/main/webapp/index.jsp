@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>index</title>
+		<title>index1</title>
 	</head>
 	<body>
 	  <ul>
