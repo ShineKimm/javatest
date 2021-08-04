@@ -37,6 +37,8 @@ public class BVo {
 	private Timestamp bdate;
 	private String bupload;
 	private int bhit;
+	
+	
 	public int getBid() {
 		return bid;
 	}

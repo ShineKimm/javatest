@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.site.ex0729.service.BService;
+import com.site.ex0729.service.BServicelist;
 import com.site.ex0729.service.MService;
-@WebServlet("/PController")
+@WebServlet("/*.do")
 public class PController extends HttpServlet {
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doAction");
@@ -25,14 +26,23 @@ public class PController extends HttpServlet {
 		BService bService = null;
 		
 		RequestDispatcher dispatcher = null;
+		
+		System.out.println(fileUrl);
 		if (fileUrl.equals("/member/login.do")) {
-			System.out.println(fileUrl);
+			System.out.println("login.do"+fileUrl);
 //			mService = new MServiceLogin();
 			mService.excute(request, response);
 			dispatcher = request.getRequestDispatcher("login.jsp");
-		}else if(fileUrl.equals("/member/dologin.do")) {
+		}
+		else if(fileUrl.equals("/member/dologin.do")) {
 			mService.excute(request, response);
 			dispatcher = request.getRequestDispatcher("dologin.jsp");
+		}
+		else if(fileUrl.equals("/board/blist.do")) {
+			bService = new BServicelist();
+			bService.excute(request, response);
+			dispatcher = request.getRequestDispatcher("blist.jsp");
+			System.out.println("blist.jsp--------------");
 		}
 		dispatcher.forward(request, response);
 	}

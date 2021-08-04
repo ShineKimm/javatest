@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{ margin: 0; padding: 0;
+			}
+			#main{
+			position:relative;
+			  width:900px;
+			  height:3000px;
+			  border:2px solid #ccc;
+
+			}
+			
+			.box{
+			box-sizing: border-box;
+		  position:absolute;
+		  width:100px;
+		  height:100px;
+		  background:#0094ff;
+		  border:5px solid red;
+			}
+			#crd1 { top:0; left:0; }
+			#crd2 { left: 100px; top: 100px;}
+			#crd3 { right:0; top:200px; }
+			#crd4 { left:400px; top:500px; position:fixed; }
+			#side_icon {
+				top: 500px;
+				width: 61px;
+				height: 61px;
+				background: #d61818;
+				border-radius: 50%;
+				position: fixed;
+				background-image: url("image/back01.png");
+				background-repeat:no-repeat;
+				background-size: 40%; 
+				background-position: 18px 20px;
+			}
+
+			
+		
+		</style>
+	</head>
+	<body>
+		<video width="100%" src="image/kanu01.mp4" muted autoplay loop ></video>
+		<div id="main">
+			<div class="box" id="crd1"></div>
+			<div class="box" id="crd2"></div>
+			<div class="box" id="crd3"></div>
+			<div class="box" id="crd4"></div>
+			<div class="box" id="side_icon"></div>
+		</div>
+	
+	</body>
+</html>
